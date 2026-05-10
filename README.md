@@ -61,6 +61,17 @@ mslc
 
 ---
 
+## Configuration
+
+The only required adjustment is the ModSecurity audit log path.
+
+Default path used by MSLC:
+
+```text
+/usr/local/apache/logs/modsec_audit.log
+
+---
+
 ## Requirements
 
 - Bash
