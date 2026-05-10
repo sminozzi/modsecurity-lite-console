@@ -25,7 +25,7 @@ The project focuses on operational simplicity, low resource usage and quick inci
 
 ## Screenshot
 
-![MSLC Screenshot](screenshot.jpg)
+![MSLC Screenshot](screenshot.png)
 
 ---
 
