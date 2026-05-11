@@ -81,13 +81,12 @@ main_menu() {
         menu_item "8" "Exit"
 
         echo
-        read -p "Choose an option [1-9]: " option
+        read -p "Choose an option [1-8]: " option
 
         case "$option" in
             1)
-                #watch -n 20 "bash -c 'echo \"ModSecurity Lite Console - Top 10 Blocked IPs (403)\"; echo \"Updated: \$(date)\"; echo \"----------------------------------------\"; echo \"Press Ctrl+C to stop.\"; echo; tail -n 300 $ACCESS_LOG | grep \" 403 \" | awk \"{print \\\\$1}\" | sort | uniq -c | awk \"\\\$1 > 2\" | sort -nr | head -10'"
-                #;;
-                watch -n 20 'echo "ModSecurity Lite Console - Top 10 Blocked IPs (403)"; echo "Updated: $(date)"; echo "----------------------------------------"; echo "Press Ctrl+C to stop."; echo; tail -n 300 /usr/local/apache/logs/access_log | grep " 403 " | awk '\''{print $1}'\'' | sort | uniq -c | awk '\''$1 > 2'\'' | sort -nr | head -10'
+
+                watch -n 20 'echo "ModSecurity Lite Console - Top 10 Blocked IPs (403)"; echo "Updated: $(date)"; echo " "; echo "Press Ctrl+C to stop."; echo; printf "%-10s | %s\n" "Number" "IP"; echo "----------------------------------------"; tail -n 300 /usr/local/apache/logs/access_log | grep " 403 " | awk '\''{print $1}'\'' | sort | uniq -c | awk '\''$1 > 2'\'' | sort -nr | head -10'
                 ;;
             2)
                 echo "--- [2] Live ModSecurity audit monitor ---"
