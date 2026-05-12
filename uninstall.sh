@@ -4,7 +4,7 @@
 # Script  : uninstall.sh
 # Purpose : Remove installed ModSecurity Lite Console scripts from /usr/local/bin.
 # Author  : Bill Minozzi
-# Version : 0.1 beta
+# Version : 0.2 beta
 # Created : 2026-05-09
 # Updated : 2026-05-09
 
