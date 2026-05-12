@@ -38,7 +38,7 @@ bin/mslc-rules-today.py         ModSecurity rules triggered today
 bin/mslc-rules-yesterday.py     ModSecurity rules triggered yesterday
 bin/mslc-rule-totals.py         Daily totals from ModSecurity audit logs
 bin/mslc-top-urls-today.py      Top blocked URLs for today
-
+bin/mslc-top-ips.sh             Top Ips blocked now
 conf/mslc.conf                  Default configuration reference
 
 install.sh                      Installer
