@@ -4,7 +4,7 @@
 # Script  : mslc-console.sh
 # Purpose : Main terminal menu for lightweight ModSecurity monitoring tools.
 # Author  : Bill Minozzi
-# Version : 0.1 beta
+# Version : 0.2 beta
 # Created : 2026-05-09
 # Updated : 2026-05-09
 
@@ -46,7 +46,7 @@ show_about() {
 
     echo "ModSecurity Lite Console - StopBadBots"
     echo
-    echo "Version : 0.1 beta"
+    echo "Version : 0.2 beta"
     echo "Author  : Bill Minozzi"
     echo
     echo "Lightweight ModSecurity monitoring console"
