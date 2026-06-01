@@ -158,6 +158,13 @@ This tool is intended for defensive system administration and security log analy
 
 ---
 
+## Videos
+https://www.youtube.com/watch?v=iFCVfJ6TxMA
+https://www.youtube.com/watch?v=O4c7FBtunsY
+
+## Free Updated ModSecurity Rules
+https://github.com/sminozzi/SBB-WAF-Rules
+
 ## License
 
 GPL v3
