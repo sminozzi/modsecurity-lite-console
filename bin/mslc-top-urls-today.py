@@ -19,13 +19,20 @@ from collections import Counter
 from datetime import datetime
 import locale
 
+
+
 DATE_PATTERN = re.compile(
-    r'^\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\]'
+    r'^(?:--[a-f0-9]+-A--\s*|\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2}(?:\.\d+)? \+\d{4})\])'
 )
+
+
 
 DATE_COMPARE_PATTERN = re.compile(
     r'\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4})'
 )
+
+
+
 
 REQUEST_PATTERN = re.compile(
     r'^(GET|POST|HEAD|PUT|DELETE|PATCH|OPTIONS)\s+(\S+)\s+HTTP/\d(?:\.\d)?',

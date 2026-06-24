@@ -29,11 +29,31 @@ RULE_DESCRIPTIONS = {
   "240020": "Remote File Inclusion",
   "240000": "Remote Code Execution Attempt",
   "225170": "Get Usernames",
+  "218420": "Detects PHP injection attacks using I/O stream",
+  "213020": "Detects XSS attacks using obfuscated patterns",
   "211650": "Mysql attack",
   "211080": "Header line break attempt / header splitting",
   "210831": "Block bad UA by user agent table...",
   "210730": "Looking for .exe, .sql, .ini, .sh and related probes",
   "210492": "/env probe",
+  "210350": "Multiple/Conflicting Connection Header Data Found",
+  "210410": "Invalid character in request",
+  "210710": "Request content type is not allowed by policy.",
+  "210930": "Malicious site name found in body",
+  "210240": "Multipart request body failed strict validation",
+  "210740": "Blocked suspicious headers",
+  "211230": "PHP Injection Attack",
+  "210230": "Failed to parse request body",
+  "210580": "OS File Access Attempt",
+  "217240": "Empty User Agent Header",
+  "212850": "XSS Attack Detected",  
+  "218580": "MySQL in-line comment detected",
+  "220150": "SQL injection Vulnerability in Ginkgo CMS",
+  "234930": "File upload vulnerability in the file manager plugin",
+  "211030": "MySQL in-line comment detected",
+  "218500": "SQLmap attack detected",
+  "218530": "SQL Injection Attack",
+  "211190": "Remote File Access Attempt",
   "2000004": "Block Login (wrong ip)",
   "2000003": "Block Shortcodes Ultimate Vendor Folder",
   "2000002": "Allow Specific Font for Shortcodes Ultimate",
@@ -74,8 +94,15 @@ RULE_DESCRIPTIONS = {
 }
 
 ID_PATTERN = re.compile(r'\[id "(\d+)"\]')
+
+
+#DATE_PATTERN = re.compile(
+#    r'^\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\]'
+#)
+
+
 DATE_PATTERN = re.compile(
-    r'^\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\]'
+    r'^(?:--[a-f0-9]+-A--\s*)?\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2}(?:\.\d+)? \+\d{4})\]'
 )
 
 

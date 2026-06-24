@@ -170,7 +170,16 @@ RULE_DESCRIPTIONS = {
 
 # --- Global regex patterns ---
 ID_PATTERN = re.compile(r'\[id "(\d+)"\]')
-DATE_PATTERN = re.compile(r'^\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\]')
+
+# DATE_PATTERN = re.compile(r'^\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4})\]')
+
+
+
+DATE_PATTERN = re.compile(
+    r'^(?:--[a-f0-9]+-A--\s*)?\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}:\d{2}:\d{2}:\d{2}(?:\.\d+)? \+\d{4})\]'
+)
+
+
 DATE_COMPARE_PATTERN = re.compile(r'\[(\d{2}/(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4})')
 
 

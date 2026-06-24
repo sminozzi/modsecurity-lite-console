@@ -1,15 +1,5 @@
 #!/bin/bash
 
-"""
-Project : ModSecurity Lite Console - StopBadBots
-Script  : mslc-top-ips.sh
-Purpose : Analyze Top Ips
-Author  : Bill Minozzi
-Version : 0.2 beta
-Created : 2026-05-09
-Updated : 2026-05-09
-"""
-
 CONF_FILE="/etc/mslc.conf"
 
 if [ -f "$CONF_FILE" ]; then

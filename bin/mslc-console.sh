@@ -4,17 +4,23 @@
 # Script  : mslc-console.sh
 # Purpose : Main terminal menu for lightweight ModSecurity monitoring tools.
 # Author  : Bill Minozzi
-# Version : 0.1 beta
+# Version : 0.2a beta
 # Created : 2026-05-09
-# Updated : 2026-05-09
+# Updated : 2026-06-24
 
 RESET="$(tput sgr0 2>/dev/null)"
 BOLD="$(tput bold 2>/dev/null)"
 WHITE="$(tput setaf 7 2>/dev/null)"
 BLACK_BG="$(tput setab 0 2>/dev/null)"
 
-ACCESS_LOG="/usr/local/apache/logs/access_log"
-MODSEC_AUDIT_LOG="/usr/local/apache/logs/modsec_audit.log"
+CONF_FILE="/etc/mslc.conf"
+
+if [ -f "$CONF_FILE" ]; then
+    source "$CONF_FILE"
+else
+    echo "ERROR: Config file not found: $CONF_FILE"
+    exit 1
+fi
 
 print_title() {
     local cols
@@ -46,7 +52,7 @@ show_about() {
 
     echo "ModSecurity Lite Console - StopBadBots"
     echo
-    echo "Version : 0.1 beta"
+    echo "Version : 0.2a beta"
     echo "Author  : Bill Minozzi"
     echo
     echo "Lightweight ModSecurity monitoring console"
@@ -71,7 +77,7 @@ main_menu() {
         clear
         print_title
 
-        menu_item "1" "Top 10 blocked IPs (403)"
+        menu_item "1" "Top ${TOP_LIMIT} blocked IPs"
         menu_item "2" "Live ModSecurity audit monitor"
         menu_item "3" "ModSecurity totals by date"
         menu_item "4" "ModSecurity rules triggered today"
@@ -85,8 +91,7 @@ main_menu() {
 
         case "$option" in
             1)
-
-                watch -n 20 'echo "ModSecurity Lite Console - Top 10 Blocked IPs (403)"; echo "Updated: $(date)"; echo " "; echo "Press Ctrl+C to stop."; echo; printf "%-10s | %s\n" "Number" "IP"; echo "----------------------------------------"; tail -n 300 /usr/local/apache/logs/access_log | grep " 403 " | awk '\''{print $1}'\'' | sort | uniq -c | awk '\''$1 > 2'\'' | sort -nr | head -10'
+                watch -t -n "$REFRESH_INTERVAL" /usr/local/bin/mslc-top-ips.sh
                 ;;
             2)
                 echo "--- [2] Live ModSecurity audit monitor ---"
